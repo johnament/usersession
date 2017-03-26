@@ -13,17 +13,19 @@ public class UserSessionContext implements AlterableContext {
 
     @Override
     public <T> T get(Contextual<T> contextual, CreationalContext<T> creationalContext) {
-        return null;
+        return contextual.create(creationalContext);
     }
 
     @Override
     public <T> T get(Contextual<T> contextual) {
-        return null;
+        // need a way to convert a contextual into a string without losing the data
+        // the object stored within the user session has to contain all of this data.
+        return get(contextual, null);
     }
 
     @Override
     public void destroy(Contextual<?> contextual) {
-
+//        contextual.destroy();
     }
 
     @Override

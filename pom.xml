@@ -25,6 +25,16 @@
             <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>ws.ament.hammock</groupId>
+            <artifactId>web-undertow</artifactId>
+            <version>1.2-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>ws.ament.hammock</groupId>
+            <artifactId>bootstrap-weld3</artifactId>
+            <version>1.2-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

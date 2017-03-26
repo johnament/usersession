@@ -25,7 +25,7 @@ public class UserSessionFilterAssociator implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
         this.queryParam = filterConfig.getInitParameter("sessionIdParameterQueryParam");
         this.headerParam = filterConfig.getInitParameter("sessionIdParameterHeaderParam");
-        this.sessionController = CDI.current().select(SessionController.class).get();;
+        this.sessionController = CDI.current().select(SessionController.class).get();
     }
 
     @Override
