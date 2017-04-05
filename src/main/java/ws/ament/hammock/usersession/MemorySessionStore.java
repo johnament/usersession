@@ -18,12 +18,27 @@
 
 package ws.ament.hammock.usersession;
 
+import javax.enterprise.context.ApplicationScoped;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
-public interface SessionStore {
-    Optional<UserSession> getUserSession(String sessionId);
+@ApplicationScoped
+public class MemorySessionStore implements SessionStore{
+    private final Map<String, UserSession> userSessionMap = new HashMap<>();
 
-    void save(UserSession userSession);
+    @Override
+    public Optional<UserSession> getUserSession(String sessionId) {
+        return Optional.ofNullable(userSessionMap.get(sessionId));
+    }
 
-    void delete(UserSession userSession);
+    @Override
+    public void save(UserSession userSession) {
+        userSessionMap.put(userSession.getSessionId(), userSession);
+    }
+
+    @Override
+    public void delete(UserSession userSession) {
+        userSessionMap.remove(userSession.getSessionId());
+    }
 }
